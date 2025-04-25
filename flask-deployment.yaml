@@ -25,7 +25,7 @@ spec:
             - name: MYSQL_PASSWORD
               value: "my-secret-pw"
             - name: MYSQL_DB
-              value: "ip_addresses"
+              value: "ips"
 ---
 apiVersion: v1
 kind: Service
