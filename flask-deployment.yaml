@@ -19,11 +19,11 @@ spec:
             - containerPort: 3000
           env:
             - name: MYSQL_HOST
-              value: "192.168.49.2"  # Minikube IP address for MySQL
+              value: "mysql"  # Minikube IP address for MySQL
             - name: MYSQL_USER
               value: "root"
             - name: MYSQL_PASSWORD
-              value: "password"
+              value: "my-secret-pw"
             - name: MYSQL_DB
               value: "ip_addresses"
 ---
