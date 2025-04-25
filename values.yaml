@@ -1,0 +1,6 @@
+prometheus:
+  mysql:
+    user: root  # MySQL username
+    password: my-secret-pw  # MySQL password (update it with your actual password)
+    host: mysql  # Name of the MySQL pod
+    port: 3306
