@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ip-capture-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ip-capture-api
+  template:
+    metadata:
+      labels:
+        app: ip-capture-api
+    spec:
+      containers:
+        - name: ip-capture-api
+          image: halnabriss/ip-capture-api
+          ports:
+            - containerPort: 3000
+          env:
+            - name: MYSQL_HOST
+              value: "192.168.49.2"  # Minikube IP address for MySQL
+            - name: MYSQL_USER
+              value: "root"
+            - name: MYSQL_PASSWORD
+              value: "password"
+            - name: MYSQL_DB
+              value: "ip_addresses"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ip-capture-api
+spec:
+  selector:
+    app: ip-capture-api
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+      nodePort: 30001
+  type: NodePort
