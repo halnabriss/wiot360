@@ -34,3 +34,7 @@ kubectl port-forward --address 0.0.0.0 svc/ip-capture-api 3306:3306
 8. Access Flask API
 To access your Flask app from outside the cluster, use Minikube’s tunnel feature. In a new terminal window, run:
 http://13.218.70.251:3000/
+
+Flask Source code and Dockerfile can be found in app.py , and Dockerfile
+I built this docker and uploaded it to my dockerhub account:
+halnabriss/ip-capture-api
